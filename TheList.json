@@ -1,0 +1,154 @@
+{
+    "ListName": "Earl's List",
+    "MadeFor": "Angelina Engelmann",
+    "BecauseOf": "The concept of karma",
+    "home": "none of your business",
+    "Activity": [
+      {
+        "cathegory": "things i've done",
+        "UpdatedDay": 1,
+        "UpdatedMonth": 1,
+        "UpdatedJear": 2023,
+        "active": true,
+        "Elements": [
+          {
+            "SubjectName": "good karma",
+            "Pluses": true,
+            "BulletPoints": [
+              {
+                "Number": 1,
+                "topic": "washed my windows",
+                "carma Points": 6,
+                "Involves": "all",
+                "Date":"1.1.2023"
+              },
+              {
+                "Number": 2,
+                "topic": "made Henny breakfast",
+                "carma Points": 25,
+                "Involves": "Henny",
+                "Date": "1.1.2023"
+              },
+              {
+                "Number": 3,
+                "topic": "offered my help to a mother",
+                "carma Points": 9,
+                "Consequence": "she did not want it XD",
+                "Involves": "random preson"
+              },
+              {
+                "Number": 4,
+                "topic": "Worked on my elaboration",
+                "carma Points": 20,
+                "Involves": "me",
+                "Consequence": "was fun"
+  
+              }
+            ]
+          
+          },
+          {
+            "SubjectName": "bad karma",
+            "Pluses": false,
+            "BulletPoints":[
+              {
+                "Number": 1,
+                "topic": "Been a litterbug",
+                "carma Points": 12,
+                "Involves": "me"
+              },
+              {
+                "Number": 2,
+                "topic": "ruined mom's Christmas",
+                "carma Points": 5,
+                "Involves": "mom",
+                "Date":"2008" 
+              },
+              {
+                "Number": 3,
+                "topic": "was annoying to mom",
+                "carma Points": 5,
+                "Involves": "mom"
+              },
+              {
+                "Number": 4,
+                "topic": "have stolen the idea for the elaboration dominic",
+                "carma Points": 1,
+                "Involves": "dominic"
+              },
+              {
+                "Number": 5,
+                "topic": "was a bitch ",
+                "carma Points": 30,
+                "Involves": "all"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "cathegory": "Stuff happened to me",
+        "UpdatedDay": 1,
+        "UpdatedMonth": 1,
+        "UpdatedJear": 2023,
+        "active": false,
+        "Elements": [
+          {
+            "SubjectName": "good things",
+            "Pluses": false,
+            "BulletPoints": [
+              
+                {
+                  "Number": 1,
+                  "topic": "had fun while worked on my elaboration",
+                  "carma Points": 10,
+                  "Date":"1.1.2023"
+                  
+                },
+                {
+                  "Number": 2,
+                  "topic": "had a awesome bath",
+                  "carma Points": 5,
+                  "Date": "1.1.2023"
+                },
+                {
+                  "Number": 3,
+                  "topic": "had a super breakfast",
+                  "carma Points": 25,
+                  "Date": "1.1.2023"
+                },
+                {
+                  "Number": 4,
+                  "topic": "chatted with Vanessa",
+                  "carma Points": 19,
+                  "Date": "1.1.2023"
+                },
+                {
+                  "Number": 5,
+                  "topic": "Met Marie while shopping",
+                  "carma Points": 27,
+                  "Date": "31.12.2022"
+                }
+              
+            ]
+        },
+        {
+          "SubjectName": "bad things",
+          "good": true,
+          "BulletPoints": [
+            {
+              "Number": 1,
+              "topic": "Window cleaning is pain in the ass",
+              "carma Points": 23,
+              "Involves": "me"
+            },
+            {
+              "Number": 2,
+              "topic": "had a hangover and a stomach ache",
+              "carma Points": 25,
+              "Involves": "mom"
+            }]
+            }]
+      }
+    ]
+  }
