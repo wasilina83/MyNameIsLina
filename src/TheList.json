@@ -140,13 +140,13 @@
               "Number": 1,
               "topic": "Window cleaning is pain in the ass",
               "carma Points": 23,
-              "Involves": "me"
+              "Date": "1.1.2023"
             },
             {
               "Number": 2,
               "topic": "had a hangover and a stomach ache",
               "carma Points": 25,
-              "Involves": "mom"
+              "Date": "1.1.2023"
             }]
             }]
       }
