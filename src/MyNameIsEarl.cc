@@ -63,6 +63,47 @@ int main(int argc, char** argv){
         ->required()
         ->check(CLI::ExistingFile);
 
+    //try & catch Funktion, sollte ein Parse Error auftreten, so wird die "app" geschlossen
+    try
+    {
+        app.parse(argc, argv);
+
+    }
+    catch(const CLI::ParseError &e)
+    {
+        return app.exit(e);
+    }
+
+    std::ifstream file{filepath};
+
+    if (!file.is_open()){
+        std::cout << "Error file is open! close it! \n" << std::endl;
+        exit(0);
+    }
+    
+    nlohmann::json database_object;
+
+    //try & catch Funktion, sollte die file nicht dem "database_object" übergeben werden, so schreibe den Fehler und exit mit Fehler
+    try
+    {
+        database_object = nlohmann::json::parse(file);
+    }
+    catch (nlohmann::json::parse_error& ex)
+    {
+        std::cerr << "parse error at byte " << ex.byte << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
+    
+    //Inhalt der BulletPoints wird ausgegeben
+    for (auto& elemen : database_object["BulletPoints"]){
+        int carma_punkte_sum, carma_punkte_pos, carma_punkte_neg;
+         
+    }
+
+
+
+
+
 
 }
 
