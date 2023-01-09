@@ -49,16 +49,21 @@ int main(int argc, char** argv){
     CLI::App app{"Füge deine Carma-Punkte hinzu mit: -r in src/TheList.json \n "};
     std :: string filepath, inhalt, charmbalance, aendern, neuBulletPoint; //Strings für die  Optionen 
     int activitynum; //Integer für things i've done and happened
-    int cathegoryynum; //Integer für bad und good karma oder good und bad things
+    int cathegoryynum, unterpunkt; //Integer für bad und good karma oder good und bad things
     app.add_option("-a, --add", neuBulletPoint, "Füge einen Neuen Bullet Point zur deiner Liste hinzu");
-    app.add_option("-A --activity", activitynum, "Activitynummer mit angeben, damit der neue Inhalt korrekt gespeichert wrid.\n "
+    app.add_option("-A, --activity", activitynum, "Activitynummer mit angeben, damit der neue Inhalt korrekt gespeichert wrid.\n "
                                                     "(1) für things i've done. \n "
                                                     "(2) things happened to me" );
-    app.add_option("-C --cathegory", cathegoryynum, "cathegorynummer mit angeben, damit der neue Inhalt korrekt gespeichert wrid. \n"
+    app.add_option("-C, --cathegory", cathegoryynum, "cathegorynummer mit angeben, damit der neue Inhalt korrekt gespeichert wrid. \n"
                                                     "Bei things i've done: \n"
                                                     " (1) für bad karma \n (2) good karma \n"
                                                     "Bei things happened to me: \n"
                                                     " (1) für good things \n (2) bad things\n");
+    app.add_option("-B, --BulletPointsOption", unterpunkt, "BulletPoints unterpunkt\n"
+                                                            "(1) füt topic\n"
+                                                            "(2) carma Points\n"
+                                                            "(3) Involves\n"
+                                                            "(4) Date\n");
     app.add_option("-r, --read", filepath, "Path to config file" )
         ->required()
         ->check(CLI::ExistingFile);
@@ -95,10 +100,73 @@ int main(int argc, char** argv){
     }
     
     //Inhalt der BulletPoints wird ausgegeben
-    for (auto& elemen : database_object["BulletPoints"]){
-        int carma_punkte_sum, carma_punkte_pos, carma_punkte_neg;
-         
+    for (auto& element : database_object["Activity"]){
+        int carma_punkte_sum, carma_punkte_pos, carma_punkte_neg, carma_elemetes_pos, carma_elemetes_neg, carma_elemetes_sum;
+        //Hier wird durch die Funktion ".size" der Inhalt gezählt und dieser als Integer in carma_elemetes_sum gesetzt 
+        carma_elemetes_sum = element["BulletPoints"].size();
+
+        if(activitynum == 1 && element["active"] == true){
+           for (auto& Actelement : element["Elements"]){
+            if (cathegoryynum == 1 && Actelement["Pluses"] == true){
+                for (auto& catelement : Actelement["BulletPoints"]){
+                    std::cout << "Du hast insgesammt " << carma_elemetes_sum << "In deiner gutes Karma Liste. Unteranderen folgende dinge: " << catelement["topic"] << std::endl;
+
+                }
+
+
+
+            } else {
+                for (auto& catelement : Actelement["BulletPoints"]){
+                    std::cout << "Du hast insgesammt " << carma_elemetes_sum << "In deiner schlechtes Karma Liste. Unteranderen folgende dinge: " << catelement["topic"] << std::endl;
+
+                }
+            }
+            
+
+            
+            }
+           }else{
+                for (auto& Actelement : element["Elements"]){
+                if (cathegoryynum == 1 && Actelement["Pluses"] == true){
+                    for (auto& catelement : Actelement["BulletPoints"]){
+                    std::cout << "Du hast insgesammt " << carma_elemetes_sum << "In deiner schlechtes passiert Liste. Unteranderen folgende dinge: " << catelement["topic"] << std::endl;
+
+                    }
+
+
+
+                 } else {
+                    for (auto& catelement : Actelement["BulletPoints"]){
+                    std::cout << "Du hast insgesammt " << carma_elemetes_sum << "In deiner gutes passiert Liste. Unteranderen folgende dinge: " << catelement["topic"] << std::endl;
+
+                }
+           
+           } 
+        }
+
+        //Hier wird "Anzahl Lagerplätze" aufgerufen und auch als Integer gesetzt
+       /* if ("BulletPoints" = true){
+            for(auto& point : database_object["BulletPoints"]) 
+            anzahl_plaetze = element["Anzahl Lagerplätze"];
+            }
+
+        //Hier wird er Aktuelle Inhalt, der "Anzahl Lagerplätze" abgezogen. Die zuvor deklarierten Integer werden verrechnet
+        leere_plaetze = anzahl_plaetze - belegte_plaetze;
+        */
+
+        //Hier wird der Inhalt ausgegeben -Aufgabe 1
+        std::cout << "Du hast insgesammt " << carma_elemetes_sum << "In deiner Liste. Unteranderen folgende dinge: " << element["topic"] << std::endl;
+
+        //Hier werden die restlichen Lagerplätze ausgegebnen -Aufgabe 2
+        /*std::cout << "Es sind " << leere_plaetze << " von " << anzahl_plaetze << " Plätze frei\n" << std::endl;
+         */
     }
+
+    /* Ändern der Inhalte der Eigelesene Datei 
+        vieleicht mit in einander verschachtelten for Schleifen
+        zu erts wird  die Activity gewählt dann das Elements
+        dann wird von BulletPoints zu BulletPoints iteriert*/
+    
 
 
 
